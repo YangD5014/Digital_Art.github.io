@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- v-text:=>{} -->
+<!-- v-html指令: -->
+<!-- v-on指令 v-on:click='fun' @  为元素绑定事件 -->
+<!-- v-show -->
+<!-- v-if -->
+<!-- v-bind 设置元素属性 v-bind：属性名="xxx" ommit as : -->
+<body>
+    <div id="app">
+        <img :src="imgarr[index]" alt="">
+        <a href="#" @click="pre">previous one</a>
+        <a href="#" @click="next">next one</a>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                imgarr:['https://www4.bing.com//th?id=OHR.LuebeckCityGate_ZH-CN4618826141_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp',
+                'https://www4.bing.com//th?id=OHR.CanopyPeru_ZH-CN5659581553_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp',
+                'https://www4.bing.com//th?id=OHR.BryceAnniv_ZH-CN5305245786_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp',
+                'https://www4.bing.com//th?id=OHR.GroundhogThree_ZH-CN6720558481_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'],
+                index:0
+            },
+            methods: {
+                pre:function(){
+                    if(this.index<0){
+                        this.index=0;
+                        return;
+                    }
+                    else{
+                        this.index--
+                    }
+                    
+                    console.log(this.index)
+
+                },
+                next:function(){
+                    if(this.index>3){
+                        this.index=3;
+                        return;
+                    }
+                    this.index++
+                    console.log(this.index)
+
+                },
+
+            },
+        })
+    </script>
+</body>
+</html>
