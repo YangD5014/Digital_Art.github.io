@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- v-text:=>{} -->
+<!-- v-html指令: -->
+<!-- v-on指令 v-on:click='fun' @  为元素绑定事件 -->
+<!-- v-model 数据双向绑定 -->
+<body>
+    <div id="app">
+        {{message}}
+        <br>
+        <input type="text" v-model="content">
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'hello!',
+                content:'yjf',
+                content_html:"<a href='http://www.baidu.com'>baidu</a>",
+                food_name:'薯条',
+            },
+            methods: {
+                doit:function(){
+                    alert('do it!')
+                },
+                changefood_name:function(){
+                    console.log(this.food_name)
+                    this.food_name='九转大肠'
+                }
+            },
+        })
+    </script>
+</body>
+</html>
